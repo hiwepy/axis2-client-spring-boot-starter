@@ -1,3 +1,6 @@
 axis2:
   client:
     enabled: true
+    options:
+      properties:
+        

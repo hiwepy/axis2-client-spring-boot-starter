@@ -28,12 +28,20 @@ import org.apache.axis2.AxisFault;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
+import org.apache.axis2.client.async.AxisCallback;
 
 /**
  * TODO
  * @author 		： <a href="https://github.com/vindell">vindell</a>
  */
 public class Axis2DocClientTemplate {
+	
+	
+	protected Options overrideOptions;
+	public Axis2DocClientTemplate() {}
+	public Axis2DocClientTemplate(Options overrideOptions) {
+		this.overrideOptions = overrideOptions;
+	}
 	
 	/**
 	 * 
@@ -91,10 +99,13 @@ public class Axis2DocClientTemplate {
 		serviceClient.setTargetEPR(targetEpr);
         // 确定调用方法（wsdl 命名空间地址 (wsdl文档中的targetNamespace) 和 方法名称 的组合）
 		Options options = serviceClient.getOptions();
+		
+		serviceClient.setOverrideOptions(overrideOptions);
+		
 		options.setAction(action);
 		
-		OMFactory fac = OMAbstractFactory.getOMFactory();
 		
+		OMFactory fac = OMAbstractFactory.getOMFactory();
 		// 指定命名空间，参数： uri--即为wsdl文档的targetNamespace，命名空间 perfix--可不填
 		OMNamespace omNs = fac.createOMNamespace(namespaceURI, "");
 		// 指定方法
@@ -110,9 +121,44 @@ public class Axis2DocClientTemplate {
 		omeMethod.build();
 		// 远程调用web服务
 		OMElement result = serviceClient.sendReceive(omeMethod);
-         
+        
         return result;  
-  
+    }
+	
+	public void sendReceiveNonBlocking(String serviceURL, String action, String namespaceURI, String method, Map<String, String> args, AxisCallback callback) throws AxisFault {  
+		// 使用Doc方式调用WebService
+		ServiceClient serviceClient = new ServiceClient();
+        // 指定调用WebService的URL  
+        EndpointReference targetEpr = new EndpointReference(serviceURL);  
+        // 确定目标服务地址
+		serviceClient.setTargetEPR(targetEpr);
+        // 确定调用方法（wsdl 命名空间地址 (wsdl文档中的targetNamespace) 和 方法名称 的组合）
+		Options options = serviceClient.getOptions();
+		
+		serviceClient.setOverrideOptions(overrideOptions);
+		
+		options.setAction(action);
+		
+		
+		OMFactory fac = OMAbstractFactory.getOMFactory();
+		// 指定命名空间，参数： uri--即为wsdl文档的targetNamespace，命名空间 perfix--可不填
+		OMNamespace omNs = fac.createOMNamespace(namespaceURI, "");
+		// 指定方法
+		OMElement omeMethod = fac.createOMElement(method, omNs);
+		// 指定方法的参数
+		Iterator<Entry<String, String>> ite = args.entrySet().iterator();
+		while (ite.hasNext()) {
+			Map.Entry<String, String> entry = ite.next();
+			OMElement omeParam = fac.createOMElement(entry.getKey(), omNs);
+			omeParam.setText(entry.getValue());
+			omeMethod.addChild(omeParam);
+		}
+		omeMethod.build();
+		
+		//serviceClient.addHeader(header);
+		
+		// 远程调用web服务
+		serviceClient.sendReceiveNonBlocking(omeMethod, callback);
     }
 	 
 	
