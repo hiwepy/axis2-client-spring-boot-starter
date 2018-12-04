@@ -483,6 +483,11 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- Compile dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
 		
 		<!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) API to manage MIME data -->
 		<dependency>

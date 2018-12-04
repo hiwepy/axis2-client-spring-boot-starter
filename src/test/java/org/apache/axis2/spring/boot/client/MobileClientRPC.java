@@ -31,7 +31,7 @@ public class MobileClientRPC {
 	 * @return void 返回类型
 	 */
 	@Test
-	public void testRPCClient() {
+	public void testRPCClient1() {
 		try {
 			// 使用RPC方式调用WebService
 			RPCServiceClient serviceClient = new RPCServiceClient();
@@ -82,7 +82,7 @@ public class MobileClientRPC {
 	 * @throws AxisFault
 	 */
 	@Test
-	public void Weather() throws AxisFault {
+	public void testRPCClient2() throws AxisFault {
 		// 使用RPC方式调用WebService
 		RPCServiceClient serviceClient = new RPCServiceClient();
 		Options options = serviceClient.getOptions();
@@ -106,7 +106,7 @@ public class MobileClientRPC {
 	 * @return void 返回类型
 	 */
 	@Test
-	public void Weather1() {
+	public void testRPCClient3() {
 		try {
 			// 使用RPC方式调用WebService
 			RPCServiceClient serviceClient = new RPCServiceClient();

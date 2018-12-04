@@ -55,7 +55,7 @@ public class MobileClientDoc {
 	/**
 	 * 
 	 * @Title: Weather1
-	 * @Description: TODO(document远程调用，成功，没有参数能够成功)
+	 * @Description: TODO(document远程调用，成功，单个参数能够成功)
 	 * @return void 返回类型
 	 */
 	@Test
@@ -107,14 +107,13 @@ public class MobileClientDoc {
 			String url = "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx";
 			EndpointReference targetEPR = new EndpointReference(url);
 			Options options = serviceClient.getOptions();
-			options.setTo(targetEPR);
+		//	options.setTo(targetEPR);
+			serviceClient.setTargetEPR(targetEPR);
+			
 			// 确定调用方法（wsdl 命名空间地址 (wsdl文档中的targetNamespace) 和 方法名称 的组合）
 			options.setAction("http://WebXml.com.cn/getMobileCodeInfo");
 			OMFactory fac = OMAbstractFactory.getOMFactory();
-			/*
-			 * 
-			 * 指定命名空间，参数： uri--即为wsdl文档的targetNamespace，命名空间 perfix--可不填
-			 */ 
+			// 指定命名空间，参数： uri--即为wsdl文档的targetNamespace，命名空间 perfix--可不填
 			OMNamespace omNs = fac.createOMNamespace("http://WebXml.com.cn/", "");
 			// 指定方法
 			OMElement method = fac.createOMElement("getMobileCodeInfo", omNs);
