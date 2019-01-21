@@ -48,8 +48,8 @@ public class Axis2DocClientTemplate {
 	 * @param serviceURL	: 指定创建服务地址WebService的URL,注意不是WSDL的URL
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public OMElement sendReceive(String serviceURL, String namespaceURI, String method) throws AxisFault {  
 		return this.sendReceive(serviceURL, namespaceURI + method, namespaceURI, method, new HashMap<>());
@@ -61,8 +61,8 @@ public class Axis2DocClientTemplate {
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
 	 * @param args			: 指定调用方法的参数值  
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public OMElement sendReceive(String serviceURL, String namespaceURI, String method, Map<String, String> args) throws AxisFault {  
 		return this.sendReceive(serviceURL, namespaceURI + method, namespaceURI, method, args);
@@ -71,11 +71,11 @@ public class Axis2DocClientTemplate {
 	/**
 	 * 
 	 * @param serviceURL	: 指定创建服务地址WebService的URL,注意不是WSDL的URL
+	 * @param action		: WS-Addressing Action / SOAP Action string.
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
-	 * @param args			: 指定调用方法的参数值  
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public OMElement sendReceive(String serviceURL, String action, String namespaceURI, String method) throws AxisFault {  
 		return this.sendReceive(serviceURL, action, namespaceURI, method, new HashMap<>());
@@ -84,11 +84,12 @@ public class Axis2DocClientTemplate {
 	/**
 	 * 
 	 * @param serviceURL	: 指定创建服务地址WebService的URL,注意不是WSDL的URL
+	 * @param action		: WS-Addressing Action / SOAP Action string.
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
 	 * @param args			: 指定调用方法的参数值  
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public OMElement sendReceive(String serviceURL, String action, String namespaceURI, String method, Map<String, String> args) throws AxisFault {  
 		// 使用Doc方式调用WebService

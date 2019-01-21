@@ -42,8 +42,8 @@ public class Axis2RpcClientTemplate {
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
 	 * @param args			: 指定调用方法的参数值  
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public OMElement invoke(String wsdlURL, String namespaceURI, String method, Object[] args) throws AxisFault {  
      	return this.invoke(wsdlURL, namespaceURI + method, namespaceURI, method, args);  
@@ -52,12 +52,12 @@ public class Axis2RpcClientTemplate {
 	/**
 	 * 
 	 * @param wsdlURL		: 指定创建WSDL的URL，注意不是服务地址
+	 * @param action		: WS-Addressing Action / SOAP Action string.
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
 	 * @param args			: 指定调用方法的参数值  
-	 * @param returnTypes	: 指定调用方法返回值的数据类型的class对象  
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public OMElement invoke(String wsdlURL, String action, String namespaceURI, String method, Object[] args) throws AxisFault {  
 		// 使用RPC方式调用WebService
@@ -88,13 +88,13 @@ public class Axis2RpcClientTemplate {
 	
 	/**
 	 * 
-	 * @param address		: 指定创建WSDL的URL，注意不是服务地址
+	 * @param wsdlURL		: 指定创建WSDL的URL，注意不是服务地址
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
 	 * @param args			: 指定调用方法的参数值  
 	 * @param returnTypes	: 指定调用方法返回值的数据类型的class对象  
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public Object[] invoke(String wsdlURL, String namespaceURI, String method, Object[] args, Class<?>[] returnTypes) throws AxisFault {  
      	return this.invoke(wsdlURL, namespaceURI + method, namespaceURI, method, args, returnTypes);  
@@ -102,13 +102,14 @@ public class Axis2RpcClientTemplate {
 	
 	/**
 	 * 
-	 * @param address		: 指定创建WSDL的URL，注意不是服务地址
+	 * @param wsdlURL		: 指定创建WSDL的URL，注意不是服务地址
+	 * @param action		: WS-Addressing Action / SOAP Action string.
 	 * @param namespaceURI	: 指定要调用的方法wsdl文件的命名空间;通过访问http://localhost:8080/ws/XXXService?wsdl 就可以看见 元素的targetNamespace属性值
 	 * @param method		: 指定要调用的方法
 	 * @param args			: 指定调用方法的参数值  
 	 * @param returnTypes	: 指定调用方法返回值的数据类型的class对象  
-	 * @return
-	 * @throws AxisFault
+	 * @return OMElement对象
+	 * @throws AxisFault 异常信息
 	 */
 	public Object[] invoke(String wsdlURL, String action, String namespaceURI, String method, Object[] args, Class<?>[] returnTypes) throws AxisFault {  
 		// 使用RPC方式调用WebService
