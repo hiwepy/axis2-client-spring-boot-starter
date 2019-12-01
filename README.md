@@ -1,4 +1,4 @@
-# spring-boot-starter-axis2-client
+# axis2-client-spring-boot-starter
 
 ### 说明
 
@@ -13,7 +13,7 @@
 ``` xml
 <dependency>
 	<groupId>${project.groupId}</groupId>
-	<artifactId>spring-boot-starter-axis2-client</artifactId>
+	<artifactId>axis2-client-spring-boot-starter</artifactId>
 	<version>${project.version}</version>
 </dependency>
 ```
