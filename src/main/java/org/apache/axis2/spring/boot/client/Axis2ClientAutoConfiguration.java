@@ -21,6 +21,7 @@ import org.springframework.core.Ordered;
 @ConditionalOnProperty(prefix = Axis2ClientProperties.PREFIX, value = "enabled", havingValue = "true")
 @EnableConfigurationProperties({ Axis2ClientProperties.class })
 @AutoConfigureOrder(Ordered.LOWEST_PRECEDENCE - 8)
+/**\n * Auto-configuration for Apache Axis2 web service client.\n *\n * @author [@Loong Wan](https://github.com/loong10k)\n * @since 1.0.0\n */
 public class Axis2ClientAutoConfiguration implements ApplicationContextAware {
 
 	private ApplicationContext applicationContext;
