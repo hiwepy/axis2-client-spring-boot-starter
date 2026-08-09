@@ -15,6 +15,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
+
+import java.util.Objects;
  
 
 @Configuration
@@ -38,7 +40,12 @@ public class Axis2ClientAutoConfiguration implements ApplicationContextAware {
 		Options overrideOptions = new Options();
 		Axis2ClientOptions options = properties.getOptions();
 		
-		PropertyMapper map = PropertyMapper.get().alwaysApplyingWhenNonNull();
+		PropertyMapper map = PropertyMapper.get().alwaysApplying(new PropertyMapper.SourceOperator() {
+			@Override
+			public <T> PropertyMapper.Source<T> apply(PropertyMapper.Source<T> source) {
+				return source.when(value -> value != null);
+			}
+		});
 		map.from(options.getAction()).to(overrideOptions::setAction);
 		map.from(options.getPassword()).to(overrideOptions::setPassword);
 		map.from(options.getProperties()).to(overrideOptions::setProperties);
