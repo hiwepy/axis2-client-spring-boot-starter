@@ -32,7 +32,7 @@ import org.apache.axis2.client.async.AxisCallback;
 
 /**
  * TODO
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 public class Axis2DocClientTemplate {
 	
