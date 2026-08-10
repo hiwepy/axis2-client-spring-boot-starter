@@ -25,7 +25,7 @@ import org.apache.axis2.rpc.client.RPCServiceClient;
 
 /**
  * TODO
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 
 public class Axis2RpcClientTemplate {
