@@ -17,7 +17,7 @@ package org.apache.axis2.spring.boot.client;
 
 /**
  * TODO
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 
 import javax.xml.namespace.QName;
