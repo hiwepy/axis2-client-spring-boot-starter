@@ -33,6 +33,7 @@ import org.apache.axis2.client.async.AxisCallback;
 /**
  * TODO
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
  */
 public class Axis2DocClientTemplate {
 	
@@ -126,6 +127,17 @@ public class Axis2DocClientTemplate {
         return result;  
     }
 	
+	/**
+	 * send Receive Non Blocking.
+	 *
+	 * @param serviceURL the service u r l
+	 * @param action the action
+	 * @param namespaceURI the namespace u r i
+	 * @param method the method
+	 * @param args the args
+	 * @param callback the callback
+	 * @throws AxisFault if an error occurs
+	 */
 	public void sendReceiveNonBlocking(String serviceURL, String action, String namespaceURI, String method, Map<String, String> args, AxisCallback callback) throws AxisFault {  
 		// 使用Doc方式调用WebService
 		ServiceClient serviceClient = new ServiceClient();

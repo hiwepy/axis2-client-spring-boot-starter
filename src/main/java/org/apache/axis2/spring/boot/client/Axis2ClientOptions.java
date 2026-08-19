@@ -22,6 +22,7 @@ import java.util.Map;
  * TODO
  * 
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
  */
 public class Axis2ClientOptions {
 
@@ -57,74 +58,164 @@ public class Axis2ClientOptions {
      */
     private Map<String, Object> properties = new HashMap<String, Object>();;
 
+	/**
+	 * Returns the exception to be thrown on soap fault.
+	 *
+	 * @return the exception to be thrown on soap fault
+	 */
 	public boolean isExceptionToBeThrownOnSoapFault() {
 		return exceptionToBeThrownOnSoapFault;
 	}
 
+	/**
+	 * Sets the exception to be thrown on soap fault.
+	 *
+	 * @param exceptionToBeThrownOnSoapFault the exception to be thrown on soap fault
+	 */
 	public void setExceptionToBeThrownOnSoapFault(boolean exceptionToBeThrownOnSoapFault) {
 		this.exceptionToBeThrownOnSoapFault = exceptionToBeThrownOnSoapFault;
 	}
 
+	/**
+	 * Returns the time out in milli seconds.
+	 *
+	 * @return the time out in milli seconds
+	 */
 	public long getTimeOutInMilliSeconds() {
 		return timeOutInMilliSeconds;
 	}
 
+	/**
+	 * Sets the time out in milli seconds.
+	 *
+	 * @param timeOutInMilliSeconds the time out in milli seconds
+	 */
 	public void setTimeOutInMilliSeconds(long timeOutInMilliSeconds) {
 		this.timeOutInMilliSeconds = timeOutInMilliSeconds;
 	}
 
+	/**
+	 * Returns the use separate listener.
+	 *
+	 * @return the use separate listener
+	 */
 	public boolean isUseSeparateListener() {
 		return useSeparateListener;
 	}
 
+	/**
+	 * Sets the use separate listener.
+	 *
+	 * @param useSeparateListener the use separate listener
+	 */
 	public void setUseSeparateListener(boolean useSeparateListener) {
 		this.useSeparateListener = useSeparateListener;
 	}
 
+	/**
+	 * Returns the action.
+	 *
+	 * @return the action
+	 */
 	public String getAction() {
 		return action;
 	}
 
+	/**
+	 * Sets the action.
+	 *
+	 * @param action the action
+	 */
 	public void setAction(String action) {
 		this.action = action;
 	}
 
+	/**
+	 * Returns the transport in protocol.
+	 *
+	 * @return the transport in protocol
+	 */
 	public String getTransportInProtocol() {
 		return transportInProtocol;
 	}
 
+	/**
+	 * Sets the transport in protocol.
+	 *
+	 * @param transportInProtocol the transport in protocol
+	 */
 	public void setTransportInProtocol(String transportInProtocol) {
 		this.transportInProtocol = transportInProtocol;
 	}
 
+	/**
+	 * Returns the manage session.
+	 *
+	 * @return the manage session
+	 */
 	public boolean isManageSession() {
 		return manageSession;
 	}
 
+	/**
+	 * Sets the manage session.
+	 *
+	 * @param manageSession the manage session
+	 */
 	public void setManageSession(boolean manageSession) {
 		this.manageSession = manageSession;
 	}
 
+	/**
+	 * Returns the call transport cleanup.
+	 *
+	 * @return the call transport cleanup
+	 */
 	public boolean isCallTransportCleanup() {
 		return callTransportCleanup;
 	}
 
+	/**
+	 * Sets the call transport cleanup.
+	 *
+	 * @param callTransportCleanup the call transport cleanup
+	 */
 	public void setCallTransportCleanup(boolean callTransportCleanup) {
 		this.callTransportCleanup = callTransportCleanup;
 	}
 
+	/**
+	 * Returns the user name.
+	 *
+	 * @return the user name
+	 */
 	public String getUserName() {
 		return userName;
 	}
 
+	/**
+	 * Sets the user name.
+	 *
+	 * @param userName the user name
+	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
+	/**
+	 * Returns the password.
+	 *
+	 * @return the password
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * Sets the password.
+	 *
+	 * @param password the password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -133,6 +224,11 @@ public class Axis2ClientOptions {
 		return properties;
 	}
 
+	/**
+	 * Sets the properties.
+	 *
+	 * @param properties the properties
+	 */
 	public void setProperties(Map<String, Object> properties) {
 		this.properties = properties;
 	}

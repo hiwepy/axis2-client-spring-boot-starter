@@ -29,6 +29,12 @@ public class Axis2ClientAutoConfiguration implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
  
 	@Bean
+	/**
+	 * config Context.
+	 *
+	 * @return the result
+	 * @throws Exception if an error occurs
+	 */
 	public ConfigurationContext configContext() throws Exception {
 		return ConfigurationContextFactory.createDefaultConfigurationContext();
 	}
@@ -62,20 +68,45 @@ public class Axis2ClientAutoConfiguration implements ApplicationContextAware {
 	}
 	
 	@Bean
+	/**
+	 * axis2 Doc Client Template.
+	 *
+	 * @param overrideOptions the override options
+	 * @return the result
+	 * @throws Exception if an error occurs
+	 */
 	public Axis2DocClientTemplate axis2DocClientTemplate(Options overrideOptions) throws Exception {
 		return new Axis2DocClientTemplate(overrideOptions);
 	}
 	
 	@Bean
+	/**
+	 * axis2 RPC Client Template.
+	 *
+	 * @param overrideOptions the override options
+	 * @return the result
+	 * @throws Exception if an error occurs
+	 */
 	public Axis2RpcClientTemplate axis2RpcClientTemplate(Options overrideOptions) throws Exception {
 		return new Axis2RpcClientTemplate(overrideOptions);
 	}
 	
 	@Override
+	/**
+	 * Sets the application context.
+	 *
+	 * @param applicationContext the application context
+	 * @throws BeansException if an error occurs
+	 */
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 	}
 
+	/**
+	 * Returns the application context.
+	 *
+	 * @return the application context
+	 */
 	public ApplicationContext getApplicationContext() {
 		return applicationContext;
 	}
